@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!--[if lte IE 6]><html class="preIE7 preIE8 preIE9"><![endif]-->
+<!--[if IE 7]><html class="preIE8 preIE9"><![endif]-->
+<!--[if IE 8]><html class="preIE9"><![endif]-->
+<!--[if gte IE 9]><!-->
+<html>
+<!--<![endif]-->
+
+<head>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Mel's GitHub Site</title>
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      font-family: Roboto
+    }
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    /*=====================================
+grid system
+===================================== */
+
+    .border {
+      grid-area: border;
+      height: 4px;
+      width: 100%;
+      background-color: #000
+    }
+
+    .main-head {
+      grid-area: header;
+      font-size: 2.375rem;
+      line-height: 2.625rem;
+      margin-bottom: 1.25rem;
+      grid-row-start: 1;
+      grid-row-end: 2;
+    }
+
+    .content {
+      grid-area: content;
+      flex: 1;
+    }
+
+    .main-nav {
+      display: grid;
+      grid-area: nav;
+    }
+
+    .side {
+      grid-area: sidebar;
+      background-image: url(GIT.jpg);
+      background-repeat: no-repeat;
+
+    }
+
+    .main-footer {
+      grid-area: footer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+    .wrapper {
+      display: grid;
+      min-height: 100%;
+      grid-gap: 20px;
+      grid-template-areas: "header" "nav" "content" "sidebar" "footer";
+    }
+
+    .nav-link {
+      color: #000;
+
+    }
+
+    .nav-link:hover {
+      color: #358aa4
+    }
+
+    /*=====================================
+nav system
+===================================== */
+
+    @media (min-width: 320px) {
+
+      .wrapper {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "border border" "header  header" "nav nav" "content sidebar" "footer footer";
+      }
+      nav ul {
+        display: flex;
+        justify-content: space-evenly;
+        list-style-type: none;
+
+      }
+    }
+
+    @media (min-width: 500px) {
+      .wrapper {
+        grid-template-columns: 3fr 1fr;
+        grid-template-areas: "border border" "header  header" "nav nav" "content sidebar" "footer footer";
+      }
+
+    }
+
+    @media (min-width: 700px) {
+      .main-nav {
+        grid-row-start: 2;
+        grid-row-end: 4;
+      }
+      .wrapper {
+        grid-template-columns: 1fr 2fr 3fr;
+        grid-template-areas: "border border  border" "header header  header" "nav content sidebar" "nav content sidebar" "footer footer footer"
+      }
+      nav ul {
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="border"></div>
+    <header class="main-head">Mel Sakas</header>
+    <nav class="main-nav">
+      <ul>
+        <li>
+          <a class="nav-link" href="creativesakas.com"><i class="fas fa-home fa-2x"></i></a>
+        </li>
+        <li>
+          <a class="nav-link" href="https://github.com/CSmel"><i class="fab fa-github fa-2x"></i></a>
+        </li>
+        <li>
+          <a class="nav-link" href="https://www.linkedin.com/in/melanie-sakas-b53279105/"><i class="fab fa-linkedin fa-2x"></i></a>
+        </li>
+        <li>
+          <a class="nav-link" href="https://jsfiddle.net/user/csmel/fiddles/"><i class="fab fa-jsfiddle fa-2x"></i></a>
+        </li>
+
+      </ul>
+    </nav>
+    <article class="content">
+      <h1>Skill Set</h1>
+      <p>HTML5, JavaScript, PHP, MySQL and ATOM</p>
+      <h1>Working On</h1>
+      <p> jQuery, CSS Grids and SASS.</p>
+    </article>
+    <aside class="side"></aside>
+    <footer class="main-footer"><small>Designed By Mel Sakas @ 2018</small></footer>
+  </div>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</body>
+
+</html>
