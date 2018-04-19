@@ -65,6 +65,13 @@ grid system
       width: 200px
     }
 
+    .arrow-container {
+      grid-area: arrow-container;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     .main-footer {
       grid-area: footer;
       display: flex;
@@ -77,7 +84,7 @@ grid system
       display: grid;
       min-height: 100%;
       grid-gap: 20px;
-      grid-template-areas: "header" "nav" "content" "sidebar" "footer";
+      grid-template-areas: "header" "nav" "content" "arrow-container" "sidebar" "footer";
     }
 
     .nav-link {
@@ -87,6 +94,52 @@ grid system
 
     .nav-link:hover {
       color: #358aa4
+    }
+
+    /*===========================================
+    arrow animation
+    ===========================================*/
+
+    .arrow-line {
+      background-color: #bbb;
+      width: 30px;
+      height: 5px;
+      visibility: hidden;
+      margin-bottom: 5%
+    }
+
+    .outer-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+
+    }
+
+    @keyframes grow {
+      from {
+        right: 40%;
+        width: 2%;
+        opacity: .1;
+      }
+      to {
+        right: 40%;
+        width: 20%;
+        opacity: 1;
+      }
+    }
+
+    /*arrow*/
+
+    .arrow-left {
+      width: 0;
+      height: 0;
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-right: 30px solid #bbb;
+      margin-left: -10px;
+      margin-top: -12px
     }
 
     /*=====================================
@@ -130,6 +183,17 @@ nav system
         align-items: center
       }
     }
+
+    @media (min-width: 1000px) {
+
+      .wrapper {
+        grid-template-columns: 1fr 2fr 2fr 3fr;
+        grid-template-areas: "border border  border border" "header header  header header" "nav content arrow-container sidebar" "nav content arrow-container sidebar" "footer footer footer footer"
+      }
+      .arrow-line {
+        visibility: visible;
+      }
+    }
   </style>
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
@@ -161,6 +225,14 @@ nav system
       <h1>Working On</h1>
       <p> jQuery, CSS Grids, GIT and SASS.</p>
     </article>
+    <div class="arrow-container">
+      <div class="outer-container">
+        <div class="arrow-line">
+          <div class="arrow-left">
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="side">
       <div class=" side-image"></div>
 
@@ -168,6 +240,22 @@ nav system
     <footer class="main-footer"><small>Designed By Mel Sakas @ 2018</small></footer>
   </div>
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <script>
+    //moving arrow
+    window.onload = function() {
+
+      function move(x) {
+        x.style.position = "absolute";
+        x.style.animation = "grow 3s infinite";
+        x.style.animationFillMode = "forwards";
+        x.style.animationDirection = "alternate-reverse";
+      }
+
+      var object = document.querySelector('.arrow-line');
+
+      move(object);
+    };
+  </script>
 </body>
 
 </html>
