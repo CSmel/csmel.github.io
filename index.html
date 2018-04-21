@@ -92,35 +92,14 @@ grid system
       grid-template-areas: "header" "nav" "content" "arrow-container" "sidebar" "footer";
     }
 
-    a {
-      -webkit-transition: color 0.3s linear;
-      -moz-transition: color 0.3s linear;
-      transition: color 0.3s linear;
-    }
-
-
-    .nav-link-container {
-      padding: 15px 70px;
-      background-image: linear-gradient(#000, #000);
-      background-position: 0% 0%;
-      background-repeat: no-repeat;
-      background-size: 0% 100%;
-      transition: background-size .5s, color .5s;
-
-    }
-
-    .nav-link-container:hover {
-      background-size: 100% 100%;
-    }
 
     .nav-link {
       color: #358aa4;
-      margin-left: 10px
+
     }
 
-
     .nav-link:hover {
-      color: #fff
+      color: #358aa4
     }
 
     /*===========================================
@@ -207,6 +186,24 @@ nav system
         justify-content: space-evenly;
         flex-direction: column;
         align-items: center
+      }
+
+
+      .nav-link-container {
+        padding: 15px 40px;
+        background-image: linear-gradient(#000, #000);
+        background-position: 0% 0%;
+        background-repeat: no-repeat;
+        background-size: 0% 100%;
+        transition: background-size .5s, color .5s;
+
+      }
+
+      .nav-link-container:hover {
+        background-size: 100% 100%;
+      }
+      .nav-link:hover {
+        color: #358aa4;
       }
     }
 
